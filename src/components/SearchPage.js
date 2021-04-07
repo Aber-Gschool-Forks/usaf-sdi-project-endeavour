@@ -4,7 +4,6 @@ import "../styles/SearchPage.css";
 import Header from "./Header";
 
 function SearchForm() {
-  const [locationData, setLocationData] = useState([]);
   const history = useHistory();
   //form docs: https://reactjs.org/docs/forms.html
   function handleSubmit(event) {
@@ -17,40 +16,50 @@ function SearchForm() {
       zipcode: event.target.zipcode.value,
     });
   }
+  //Do NoT dElEtE
+  function zipCodeValidator (event) {
+    if (event.target.value.length > 5) {
+        event.target.value = event.target.value.slice(0, 5)
+    }
+}
+
+
+  
   return (
-    <div className="titlePage">
-      <Header />
-      <div className="searchFormContainer">
-        <form className="searchForm" onSubmit={handleSubmit}>
-          <h1>Find breweries and Per Diem rates based on your location!</h1>
-          <label>Zip</label>
-          <br />
-          <input
-            type="text"
-            className="zipText"
-            placeholder="Enter your zip code here"
-            name="zipcode"
-          ></input>
-          <br />
-          <label>OR</label>
-          <br />
-          <label>City:</label>
-          <input
-            type="text"
-            className="City"
-            placeholder="Enter your city here"
-            name="cityField"
-          ></input>
-          <br />
-          <label>State:</label>
-          {/* Use a drop down for 2 letter states */}
-          <input
-            type="text"
-            className="State"
-            placeholder="Enter your state here"
-            name="stateField"
-          ></input>
-          <br />
+    <form className="searchForm" onSubmit={handleSubmit}>
+      <label>Zip</label>
+      <br />
+      <input
+        type="number"
+        className="zipText"
+        placeholder="Enter your zip code here"
+        name="zipcode"
+        maxLength= "5"
+        min ="00000"
+        max = "99999"
+        onInput = {zipCodeValidator}
+
+      ></input>
+      <br />
+      <label>OR</label>
+      <br />
+      <label>City:</label>
+      <input
+        type="text"
+        className="City"
+        placeholder="Enter your city here"
+        name="cityField"
+      ></input>
+      <br />
+      <label>State:</label>
+      {/* Use a drop down for 2 letter states */}
+      <input
+        type="text"
+        className="State"
+        placeholder="Enter your state here"
+        name="stateField"
+      ></input>
+      <br />
 
           <button className="submit" type="submit">
             Submit
