@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link, Route, useHistory } from "react-router-dom";
 
 function SearchForm() {
-  const [locationData, setLocationData] = useState([]);
   const history = useHistory();
   //form docs: https://reactjs.org/docs/forms.html
   function handleSubmit(event) {
@@ -15,15 +14,29 @@ function SearchForm() {
       zipcode: event.target.zipcode.value,
     });
   }
+  //Do NoT dElEtE
+  function zipCodeValidator (event) {
+    if (event.target.value.length > 5) {
+        event.target.value = event.target.value.slice(0, 5)
+    }
+}
+
+
+  
   return (
     <form className="searchForm" onSubmit={handleSubmit}>
       <label>Zip</label>
       <br />
       <input
-        type="text"
+        type="number"
         className="zipText"
         placeholder="Enter your zip code here"
         name="zipcode"
+        maxLength= "5"
+        min ="00000"
+        max = "99999"
+        onInput = {zipCodeValidator}
+
       ></input>
       <br />
       <label>OR</label>
