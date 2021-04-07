@@ -187,3 +187,5 @@ const PerDiemCityState = [
     version: null,
   },
 ];
+
+export default mockPerDiemData;
