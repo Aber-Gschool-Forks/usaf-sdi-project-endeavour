@@ -7,6 +7,7 @@ import BreweryPage from "./BreweryPage";
 function App() {
   return (
     <Switch>
+      <Route path="/brewery-results/:name" component={BreweryPage} />
       <Route path="/brewery-results/" component={BreweryPage} />
       <Route path="/" component={SearchForm} />
     </Switch>

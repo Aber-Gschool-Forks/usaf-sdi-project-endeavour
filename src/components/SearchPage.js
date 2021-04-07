@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, Route, useHistory } from "react-router-dom";
+import "../styles/SearchPage.css";
+import Header from "./Header";
 
 function SearchForm() {
   const [locationData, setLocationData] = useState([]);
@@ -16,40 +18,46 @@ function SearchForm() {
     });
   }
   return (
-    <form className="searchForm" onSubmit={handleSubmit}>
-      <label>Zip</label>
-      <br />
-      <input
-        type="text"
-        className="zipText"
-        placeholder="Enter your zip code here"
-        name="zipcode"
-      ></input>
-      <br />
-      <label>OR</label>
-      <br />
-      <label>City:</label>
-      <input
-        type="text"
-        className="City"
-        placeholder="Enter your city here"
-        name="cityField"
-      ></input>
-      <br />
-      <label>State:</label>
-      {/* Use a drop down for 2 letter states */}
-      <input
-        type="text"
-        className="State"
-        placeholder="Enter your state here"
-        name="stateField"
-      ></input>
-      <br />
+    <div className="titlePage">
+      <Header />
+      <div className="searchFormContainer">
+        <form className="searchForm" onSubmit={handleSubmit}>
+          <h1>Find breweries and Per Diem rates based on your location!</h1>
+          <label>Zip</label>
+          <br />
+          <input
+            type="text"
+            className="zipText"
+            placeholder="Enter your zip code here"
+            name="zipcode"
+          ></input>
+          <br />
+          <label>OR</label>
+          <br />
+          <label>City:</label>
+          <input
+            type="text"
+            className="City"
+            placeholder="Enter your city here"
+            name="cityField"
+          ></input>
+          <br />
+          <label>State:</label>
+          {/* Use a drop down for 2 letter states */}
+          <input
+            type="text"
+            className="State"
+            placeholder="Enter your state here"
+            name="stateField"
+          ></input>
+          <br />
 
-      <button className="submit" type="submit">
-        Submit
-      </button>
-    </form>
+          <button className="submit" type="submit">
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
   );
 }
 
