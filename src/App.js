@@ -5,10 +5,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          .
-        </p>
-          Beer
+        <p></p>
         </a>
       </header>
     </div>
