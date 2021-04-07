@@ -1,5 +1,6 @@
 import { createContext } from "react";
 
 const LocationContext = createContext();
+const BreweryContext = createContext();
 
-export default LocationContext;
+export { LocationContext, BreweryContext };
