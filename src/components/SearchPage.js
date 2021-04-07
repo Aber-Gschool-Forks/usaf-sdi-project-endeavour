@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, Route, useHistory } from "react-router-dom";
+import "../styles/SearchPage.css";
+import Header from "./Header";
 
 function SearchForm() {
   const history = useHistory();
@@ -59,10 +61,12 @@ function SearchForm() {
       ></input>
       <br />
 
-      <button className="submit" type="submit">
-        Submit
-      </button>
-    </form>
+          <button className="submit" type="submit">
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
   );
 }
 
