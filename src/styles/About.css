@@ -1,9 +1,11 @@
 .aboutBody {
-    height:85vh;
+    height:500px;
     background-image: url('http://sacramento.cbslocal.com/wp-content/uploads/sites/15909776/2012/09/114322876.jpg');
-    background-size: contain;
+    background-size: cover;
     color: whitesmoke;
     padding: 20px;
+    border: 5px solid black;
+    border-radius: 10px;
 }
 
 .authorLink {
@@ -14,8 +16,8 @@
     text-shadow: 0 0 5px black;
 }
 
-.authorList > a.div {
-    text-indent: 3em;
+.authorList {
+    text-indent: 40px;
 }
 
 .authorInfo {

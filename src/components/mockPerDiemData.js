@@ -188,4 +188,4 @@ const PerDiemCityState = [
   },
 ];
 
-export default mockPerDiemData;
+export default PerDiemCityState;

@@ -1,7 +1,26 @@
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+  
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
 .titlePage {
   display: flex;
   justify-content: center;
-  margin: auto;
+  
 }
 
 .searchFormContainer {
@@ -11,12 +30,27 @@
   justify-content: center;
   text-align: center;
   height: 500px;
-  width: 400px;
+  width: 600px;
   border: 3px solid black;
   border-radius: 10px;
+  background-image: url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/beer-background-royalty-free-image-1608331890.');
+  background-size:cover;
+  text-shadow: 2px 2px 3px white;
+  font-size: large;
 }
 
 .searchForm > button {
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 5px;
+  font-size: medium;
+  text-decoration: wavy;
+}
+
+.searchForm > button:hover {
+  background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
+  color: whitesmoke;
   border-radius: 9999px;
 }
 
@@ -24,6 +58,17 @@
   width: 150px;
   height: 25px;
   border-radius: 5px;
+}
+
+.State {
+  width: auto;
+  text-align-last: center;
+  padding: 1px;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 

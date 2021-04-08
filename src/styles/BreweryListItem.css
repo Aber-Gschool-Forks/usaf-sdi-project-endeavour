@@ -1,0 +1,19 @@
+.brewery-list-item {
+    border: 0 solid black;
+    border-radius: 5px;
+    background-color: bisque;
+    padding: 5px;
+    margin-bottom: 5px;
+    padding-left: 20px;
+}
+
+.brewery-list-item:hover {
+    cursor: pointer;
+}
+
+.brewery-list-item-name {
+    font-size: large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+    text-shadow: 2px 2px 4px saddlebrown;
+}
