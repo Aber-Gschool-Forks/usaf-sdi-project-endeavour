@@ -7,7 +7,7 @@
   position: fixed;
   bottom: 0;
   left: 0;
-  border-top: 2px solid grey;
+  border-top: 1px solid grey;
 }
 
 .Link {
@@ -21,7 +21,7 @@
   font-weight: bold;
 }
 .vertical {
-  border-left: 6px solid gray;
+  border-left: 3px solid gray;
   height: 80px;
   position: absolute;
   left: 50%;

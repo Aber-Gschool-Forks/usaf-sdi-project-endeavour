@@ -1,6 +1,21 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
-const LocationContext = createContext();
-const BreweryContext = createContext();
+export const BreweryContext = createContext();
 
-export { LocationContext, BreweryContext };
+export const BreweryProvider = ({children}) => {
+    const [currentBrew, setCurrentBrew] = useState();
+    const [currentList, setCurrentList] = useState();
+    return (
+        <BreweryContext.Provider
+        value ={{
+            currentBrew,
+            setCurrentBrew,
+            currentList,
+            setCurrentList
+        }}>
+            {children}
+            </BreweryContext.Provider>
+    );
+}
+
+

@@ -1,5 +1,8 @@
 import { useEffect } from "react";
-import { BreweryContext } from "../Context";
+import "../styles/BreweryPage.css";
+import Header from "./Header";
+import Footer from './Footer';
+import { BreweryProvider } from "../Context";
 import fetch from "../AsyncFetch";
 import BreweryList from "./BreweryList";
 import PerDiemCard from "./PerDiemCard";
@@ -18,12 +21,14 @@ export default function BreweryPage({ history }) {
     fetch(link).then((data) => (breweryFetch = data));
   });
   return (
-    <BreweryContext.Provider>
+    <BreweryProvider>
       <div className="brewery-page">
-        <BreweryList />
-        <BreweryListItem />
-        <PerDiemCard />
-        <BreweryCard />
+        <Header />
+          <BreweryList />
+          <PerDiemCard />
+          <BreweryCard />
+        <Footer />
+        
       </div>
       <Link to={`/brewery-results/${city}`}>
         <h1>{city}</h1>
@@ -31,6 +36,6 @@ export default function BreweryPage({ history }) {
       <h1>This is how we know we are in brewery results page</h1>
       <h1>{zip}</h1>
       <h1>{state}</h1>
-    </BreweryContext.Provider>
+    </BreweryProvider>
   );
 }
