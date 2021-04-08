@@ -1,15 +1,15 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { BreweryContext } from "../Context";
 
 export default function BreweryListItem() {
-  const { setCurrentBrewery } = useContext(BreweryContext);
+  const { setCurrentBrew } = useContext(BreweryContext);
   function eventHandler(e) {
     e.preventDefault();
-    setCurrentBrewery("thisisatest");
+    setCurrentBrew("thisisatest");
   }
   return (
     <div className="BreweryListItem">
-      <button onClick={eventHandler}>ChangeStuff</button>
+      <h2 onClick={eventHandler}>ChangeStuff</h2>
     </div>
   );
 }

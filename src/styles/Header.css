@@ -15,4 +15,5 @@
 .BrewListLogo > iframe {
     border: 10px solid saddlebrown;
     border-radius: 999px;
+    pointer-events: none;
 }
