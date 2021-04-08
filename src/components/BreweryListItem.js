@@ -1,15 +1,23 @@
-import { useState, useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { BreweryContext } from "../Context";
+import "../styles/BreweryListItem.css";
+//import "../styles/BreweryListItemEx.css";
 
-export default function BreweryListItem() {
-  const { setCurrentBrew } = useContext(BreweryContext);
+export default function BreweryListItem({brewery, index}) {
+  const { setCurrentBrew, currentBrew } = useContext(BreweryContext);
+  useEffect(() => {
+    if(index === 0){
+      setCurrentBrew(brewery)
+    }
+  }, []);
   function eventHandler(e) {
     e.preventDefault();
-    setCurrentBrew("thisisatest");
+    setCurrentBrew(brewery);
   }
   return (
-    <div className="BreweryListItem">
-      <h2 onClick={eventHandler}>ChangeStuff</h2>
+    <div className="brewery-list-item btn" onClick={eventHandler}>
+      <div className='brewery-list-item-name'>{brewery.name}</div>
+      <div className='brewery-list-item-info'>{(brewery.street||"N/A") + ", " + brewery.city}</div>
     </div>
   );
 }

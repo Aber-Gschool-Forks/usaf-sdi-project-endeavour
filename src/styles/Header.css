@@ -1,15 +1,31 @@
+
+ 
  .header {
     height: 150px;
     width: 100vw;
     display: flex;
     align-items: center;
+    flex-direction: row;
+    justify-content:center;
     padding-top: 10px;
 }
 
+.title {
+    padding-left: 50px;
+    justify-self: center;
+}
 .brewTitle {
-    padding-left: 30px;
     height: 120px;
     width: auto;
+    -webkit-filter: drop-shadow(1px 1px 0 white)
+                drop-shadow(-1px 1px 0 white)
+                drop-shadow(1px -1px 0 white)
+                drop-shadow(-1px -1px 0 white);
+
+    filter: drop-shadow(1px 1px 0 white)
+            drop-shadow(-1px 1px 0 white)
+            drop-shadow(1px -1px 0 white)
+            drop-shadow(-1px -1px 0 white);
 }
 
 .BrewListLogo > iframe {

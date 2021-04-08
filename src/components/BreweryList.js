@@ -1,12 +1,21 @@
-import { useState, useContext } from "react";
+import "../styles/BreweryList.css";
+import { useState, useEffect } from "react";
 import BreweryListItem from './BreweryListItem'
+import mockBreweryData from './mockBreweryData';
+import fetchData from "../AsyncFetch"
 
-export default function BreweryList() {
-  const { currentList } = useContext()
+export default function BreweryList({url}) {
+  const [ currentList, setCurrentList ] = useState([]);
+
+  useEffect(() => {
+     fetchData(url)
+     .then(data => setCurrentList(data))
+  },[]);
+
   return (
-  <div className='brew-list'>
+  <div className='brewery-list'>
     {currentList.map((b, i) =>{
-    return <BreweryListItem brewery={b} key={i} />;
+    return <BreweryListItem brewery={b} index={i} key={i} />;
     })}
   </div>
   );
