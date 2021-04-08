@@ -3,11 +3,11 @@
 
 export function breweryAPI (city, state, zip) {
     // user submitted city and state
-
+    var brewUrl;
     if (zip){
-        var brewUrl = `https://api.openbrewerydb.org/breweries?by_postal=${zip}`
+        brewUrl = `https://api.openbrewerydb.org/breweries?by_postal=${zip}&per_page=50`
     } else{
-        var brewUrl= "https://api.openbrewerydb.org/breweries?by_city=" + city.replace(" ", "_") + "&by_state=" + state;
+        brewUrl= "https://api.openbrewerydb.org/breweries?by_city=" + city.replace(" ", "_") + "&by_state=" + state.replace(" ", "_")+"&per_page=50";
     }
     console.log(brewUrl);
     return brewUrl;
@@ -16,13 +16,14 @@ export function breweryAPI (city, state, zip) {
  
 
 export function perDiemAPI (city, state, zip) {
+    var perDiemUrl;
     city = city.replace(" ", "_")
     if (zip === ""){
         
-        var perDiemUrl = `
+        perDiemUrl = `
         https://api.gsa.gov/travel/perdiem/v2/rates/city/${city}/state/${state}/year/2021?api_key=AgMo9KU7DfHFqTDXcAqse6udTXn6knH6uCLOh4K2`
     } else{
-        var perDiemUrl = `https://api.gsa.gov/travel/perdiem/v2/rates/zip/${zip}/year/2021?api_key=AgMo9KU7DfHFqTDXcAqse6udTXn6knH6uCLOh4K2`;
+        perDiemUrl = `https://api.gsa.gov/travel/perdiem/v2/rates/zip/${zip}/year/2021?api_key=AgMo9KU7DfHFqTDXcAqse6udTXn6knH6uCLOh4K2`;
 
     }
     return perDiemUrl;

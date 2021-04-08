@@ -8,26 +8,25 @@ var perDiem = PerDiemCityState
 export default function PerDiemCard({url}) {
   const [ breweryData, setBreweryData ] = useState();
   // Create the state for my per diem data
-  const [perDiemData, setPerDiemData] = useState();
+  const [perDiemData, setPerDiemData] = useState({rates: []});
   //rates[0].rate[0].meals
-  var perDiemTest;
-  if (perDiemData === undefined){
-    perDiemTest = '';
+  var perDiemAmount;
+  if (perDiemData === undefined || perDiemData.rates.length === 0){
+    perDiemAmount = 'N/A';
   } else {
-    perDiemTest = perDiemData.rates[0].rate[0].meals;
+    perDiemAmount = perDiemData.rates[0].rate[0].meals;
   }
 
   useEffect(() => {
     fetchData(url)
-    .then((data) => {
-      setPerDiemData(data);console.log(data)})
+    .then((data) => {setPerDiemData(data)})
   },[]);
   console.log(url)
   return (
   <div className="perDiemCard">
       <h1>Daily Per Diem Rate</h1>
      
-      <h2>{"$ " + perDiemTest}</h2> 
+      <h2>{"$ " + perDiemAmount}</h2> 
         
       
   </div>
