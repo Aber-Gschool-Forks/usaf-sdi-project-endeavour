@@ -1,0 +1,18 @@
+ .header {
+    height: 150px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.brewTitle {
+    padding-left: 30px;
+    height: 120px;
+    width: auto;
+}
+
+.BrewListLogo > iframe {
+    border: 10px solid saddlebrown;
+    border-radius: 999px;
+}
