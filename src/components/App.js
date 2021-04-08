@@ -16,6 +16,4 @@ function App() {
 
 export default App;
 
-/*
-"As a user, I want to input the Zip code into the zip code text block or if I don't know the zip code, I want to input my City and State into the city and state text block so that I can submit that data into the site."
-*/
+

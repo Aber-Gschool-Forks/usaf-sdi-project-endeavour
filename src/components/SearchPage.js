@@ -4,17 +4,78 @@ import "../styles/SearchPage.css";
 import Header from "./Header";
 import Footer from './Footer';
 
+
+const USStates = [
+"AL",
+"AK",
+"AZ",
+"AR",
+"CA",
+"CO",
+"CT",
+"DE",
+"FL",
+"GA",
+"HI",
+"ID",
+"IL",
+"IN",
+"IA",
+"KS",
+"KY",
+"LA",
+"ME",
+"MD",
+"MA",
+"MI",
+"MN",
+"MS",
+"MO",
+"MT",
+"NE",
+"NV",
+"NH",
+"NJ",
+"NM",
+"NY",
+"NC",
+"ND",
+"OH",
+"OK",
+"OR",
+"PA",
+"RI",
+"SC",
+"SD",
+"TN",
+"TX",
+"UT",
+"VT",
+"VA",
+"WA",
+"WV",
+"WI",
+"WY",
+]
 function SearchForm() {
   const history = useHistory();
   //form docs: https://reactjs.org/docs/forms.html
   function handleSubmit(event) {
+    let zipcode = event.target.zipCode.value
+    let statefield = event.target.stateField.value
+    let cityfield = event.target.cityField.value
     event.preventDefault();
     console.log(event.target.stateField.value);
+    if (zipcode === "" && cityfield == "" )  {
+      return alert("Please either use the Zip code or the City, bitch")
+      
+      // They need to use city and state
+    }
     history.push({
       pathname: "/brewery-results",
-      stateField: event.target.stateField.value,
-      cityField: event.target.cityField.value,
-      zipcode: event.target.zipcode.value,
+      stateField: statefield,
+      cityField: cityfield,
+      zipcode: zipcode,
     });
   }
   //Do NoT dElEtE
@@ -23,8 +84,6 @@ function SearchForm() {
         event.target.value = event.target.value.slice(0, 5)
     }
 }
-
-
   
   return (
     <div>
@@ -40,7 +99,7 @@ function SearchForm() {
               type="number"
               className="zipText txtInput"
               placeholder="Enter your zip code here"
-              name="zipcode"
+              name="zipCode"
               maxLength= "5"
               min ="00000"
               max = "99999"
@@ -66,13 +125,13 @@ function SearchForm() {
             <label>State:</label>
             <br />
             {/* Use a drop down for 2 letter states */}
-            <input
-              type="text"
-              className="State txtInput"
-              placeholder="Enter your state here"
-              name="stateField"
-            >
-            </input>
+            <select className="State txtInput" placeholder="Choose your state here" name="stateField">
+              {USStates.map(USState => {
+                return (
+                  <option value={USState}>{USState}</option>
+                )
+              })}
+            </select>
           <br />
           <br />
             <button className="submit" type="submit">
@@ -85,5 +144,8 @@ function SearchForm() {
     </div>
   );
 }
+
+
+
 
 export default SearchForm;
