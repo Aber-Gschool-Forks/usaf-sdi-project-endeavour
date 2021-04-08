@@ -1,19 +1,22 @@
 import { Link } from "react-router-dom";
+import '../styles/Footer.css';
 
 export default function Footer() {
   return (
-    <nav className="Footer-Links">
-      <section className="Home-Link-Section">
-        <Link className="Home-Link" to="/">
+
+    <div className="footer">
+      <div className="Home-Link-Section">
+        <Link className="Link" to="/">
           <p>Home</p>
         </Link>
-      </section>
-      <div class="vertical"></div>
-      <section className="About-Link-Section">
-        <Link className="About-Link" to="/about">
-          <p>About</p>
-        </Link>
-      </section>
-    </nav>
+      </div>
+      <div className="About-Link-Section">
+          <Link className="Link" to="/about">
+            <p>About</p>
+          </Link>
+        </div>
+      <div className="vertical"/>
+    </div>
+    
   );
 }
