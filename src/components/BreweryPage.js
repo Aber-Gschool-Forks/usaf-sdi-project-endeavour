@@ -1,4 +1,5 @@
 import "../styles/BreweryPage.css";
+import { useParams } from 'react-router-dom';
 import { BreweryProvider } from "../Context";
 import { breweryAPI, perDiemAPI } from '../Urls';
 import BreweryList from "./BreweryList";
@@ -6,12 +7,10 @@ import PerDiemCard from "./PerDiemCard";
 import BreweryCard from "./BreweryCard";
 
 
-export default function BreweryPage({ history }) {
-  const city = history.location.cityField;
-  const state = history.location.stateField;
-  const zip = history.location.zipcode;
-  const brewUrl = breweryAPI(city, state.State, zip);
-  const perDiemUrl = perDiemAPI(city, state.Code, zip);
+export default function BreweryPage() {
+  const { cityfield, statefield, statecode, zipcode } = useParams();
+  const brewUrl = breweryAPI(cityfield, statefield, zipcode, 1);
+  const perDiemUrl = perDiemAPI(cityfield, statecode, zipcode);
   
   return (
     <BreweryProvider>

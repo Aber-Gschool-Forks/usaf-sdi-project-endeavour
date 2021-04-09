@@ -15,7 +15,7 @@ export default function BreweryListItem({brewery, index}) {
   }
   return (
     <div className="brewery-list-item btn" onClick={eventHandler}>
-      <div className='brewery-list-item-name'>{brewery.name}</div>
+      <div className='brewery-list-item-name'>{brewery.name + "(" + brewery.brewery_type + " brewery)"}</div>
       <div className='brewery-list-item-info'>{(brewery.street||"N/A") + ", " + brewery.city}</div>
     </div>
   );

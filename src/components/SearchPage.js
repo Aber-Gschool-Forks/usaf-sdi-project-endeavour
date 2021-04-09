@@ -1,235 +1,24 @@
-import React, { useState, useEffect } from "react";
-import { Link, Route, useHistory } from "react-router-dom";
+import React  from "react";
+import { useHistory } from "react-router-dom";
+import USStates from '../USStates';
 import "../styles/SearchPage.css";
-
-
-
-const USStates = [
-{
-  State: "Alabama",
-  Code: "AL"
-},
-{
-  State: "Alaska",
-  Code: "AK"
-},
-{
-  State: "Arizona",
-  Code: "AZ"
-},
-{
-  State: "Arkansas",
-  Code: "AR"
-},
-{
-  State: "California",
-  Code: "CA"
-},
-{
-  State: "Colorado",
-  Code: "CO"
-},
-{
-  State: "Connecticut",
-  Code: "CT"
-},
-{
-  State: "Delaware",
-  Code: "DE"
-},
-{
-  State: "Florida",
-  Code: "FL"
-},
-{
-  State: "Georgia",
-  Code: "GA"
-},
-{
-  State: "Hawaii",
-  Code: "HI"
-},
-{
-  State: "Idaho",
-  Code: "ID"
-},
-{
-  State: "Illinois",
-  Code: "IL"
-},
-{
-  State: "Indiana",
-  Code: "IN"
-},
-{
-  State: "Iowa",
-  Code: "IA"
-},
-{
-  State: "Kansas",
-  Code: "KS"
-},
-{
-  State: "Kentucky",
-  Code: "KY"
-},
-{
-  State: "Lousiana",
-  Code: "LA"
-},
-{
-  State: "Maine",
-  Code: "ME"
-},
-{
-  State: "Maryland",
-  Code: "MD"
-},
-{
-  State: "Massachusetts",
-  Code: "MA"
-},
-{
-  State: "Michigan",
-  Code: "MI"
-},
-{
-  State: "Minnesota",
-  Code: "MN"
-},
-{
-  State: "Mississippi",
-  Code: "MS"
-},
-{
-  State: "Missouri",
-  Code: "MO"
-},
-{
-  State: "Montana",
-  Code: "MT"
-},
-{
-  State: "Nebraska",
-  Code: "NE"
-},
-{
-  State: "Nevada",
-  Code: "NV"
-},
-{
-  State: "New Hampshire",
-  Code: "NH"
-},
-{
-  State: "New Jersey",
-  Code: "NJ"
-},
-{
-  State: "New Mexico",
-  Code: "NM"
-},
-{
-  State: "New York",
-  Code: "NY"
-},
-{
-  State: "North Carolina",
-  Code: "NC"
-},
-{
-  State: "North Dakota",
-  Code: "ND"
-},
-{
-  State: "Ohio",
-  Code: "OH"
-},
-{
-  State: "Oklahoma",
-  Code: "OK"
-},
-{
-  State: "Oregon",
-  Code: "OR"
-},
-{
-  State: "Pennsylvania",
-  Code: "PA"
-},
-{
-  State: "Rhode Island",
-  Code: "RI"
-},
-{
-  State: "South Carolina",
-  Code: "SC"
-},
-{
-  State: "South Dakota",
-  Code: "SD"
-},
-{
-  State: "Tennessee",
-  Code: "TN"
-},
-{
-  State: "Texas",
-  Code: "TX"
-},
-{
-  State: "Utah",
-  Code: "UT"
-},
-{
-  State: "Vermont",
-  Code: "VT"
-},
-{
-  State: "Virgina",
-  Code: "VA"
-},
-{
-  State: "Washington",
-  Code: "WA"
-},
-{
-  State: "West Virgina",
-  Code: "WV"
-},
-{
-  State: "Wisconsin",
-  Code: "WI"
-},
-{
-  State: "Wyoming",
-  Code: "WY"
-},
-]
 
 function SearchForm() {
   const history = useHistory();
   //form docs: https://reactjs.org/docs/forms.html
   function handleSubmit(event) {
-    let zipcode = event.target.zipCode.value
-    let statefield = event.target.stateField.value
-    let cityfield = event.target.cityField.value
+    let zipcode = event.target.zipCode.value || "+"
+    let statefield = event.target.stateField.options[event.target.stateField.selectedIndex].text.replace(" ", "_") || "+"
+    let statecode = event.target.stateField.value || "+"
+    let cityfield = event.target.cityField.value.replace(" ", "_") || "+"
+
     event.preventDefault();
-    if (zipcode === "" && cityfield == "" )  {
-      return alert("Please either use the Zip code or the City, bitch")
-      
-      // They need to use city and state
+
+    if (event.target.zipCode.value === "" && event.target.stateField.options[event.target.stateField.selectedIndex].text == "" && event.target.cityField.value == "")  {
+      return alert("Please either use the Zip code or the City")
     }
 
-    history.push({
-      pathname: "/brewery-results",
-      stateField: {
-        State: event.target.stateField.options[event.target.stateField.selectedIndex].text,
-        Code: event.target.stateField.value
-      },
-      cityField: cityfield,
-      zipcode: zipcode,
-    });
+    history.push(`/brewery-results/${cityfield}/${statefield}/${statecode}/${zipcode}`)
   }
   //Do NoT dElEtE
   function zipCodeValidator (event) {
@@ -277,6 +66,7 @@ function SearchForm() {
               <br />
               {/* Use a drop down for 2 letter states */}
               <select className="State txtInput" placeholder="Choose your state here" name="stateField">
+                <option label=" "></option>
                 {USStates.map(USState => {
                   return (
                     <option value={USState.Code}>{USState.State}</option>

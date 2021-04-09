@@ -1,0 +1,9 @@
+.brewery-more:hover {
+    cursor: pointer;
+}
+
+.brewery-more {
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+}

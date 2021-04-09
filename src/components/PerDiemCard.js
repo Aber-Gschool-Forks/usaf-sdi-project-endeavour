@@ -1,12 +1,9 @@
 import "../styles/PerDiemCard.css";
 import { useState, useEffect } from "react";
-import PerDiemCityState from './mockPerDiemData.js'
 import fetchData from "../AsyncFetch.js"
 
-var perDiem = PerDiemCityState
 //rates[0].rate[0].meals
 export default function PerDiemCard({url}) {
-  const [ breweryData, setBreweryData ] = useState();
   // Create the state for my per diem data
   const [perDiemData, setPerDiemData] = useState({rates: []});
   //rates[0].rate[0].meals
