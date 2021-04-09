@@ -15,11 +15,16 @@ export default function BreweryPage({ history }) {
   
   return (
     <BreweryProvider>
-      <div className="brewery-page">
+      <div className="brewery-page a">
+        <div className="brewery-list-container">
           <BreweryList className="brewery-list" url={brewUrl}/>
-          <br />
+        </div>
+        <div className="per-diem-card-container">
           <PerDiemCard className="per-diem-card"url={perDiemUrl}/>
+        </div>
+        <div className="brewery-card-container">
           <BreweryCard className="brewery-card"/>
+        </div>
       </div>
     </BreweryProvider>
   );

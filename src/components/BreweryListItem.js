@@ -1,7 +1,6 @@
 import { useContext, useEffect } from "react";
 import { BreweryContext } from "../Context";
 import "../styles/BreweryListItem.css";
-//import "../styles/BreweryListItemEx.css";
 
 export default function BreweryListItem({brewery, index}) {
   const { setCurrentBrew, currentBrew } = useContext(BreweryContext);
