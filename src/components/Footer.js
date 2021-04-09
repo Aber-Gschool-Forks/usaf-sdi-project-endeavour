@@ -7,7 +7,7 @@ export default function Footer() {
     <div className="footer">
       <div className="Home-Link-Section">
         <Link className="Link" to="/">
-          <p>Home</p>
+          <p>Home&#127867;</p>
         </Link>
       </div>
       <div className="About-Link-Section">

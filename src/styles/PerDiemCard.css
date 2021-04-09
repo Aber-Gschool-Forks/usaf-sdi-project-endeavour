@@ -3,19 +3,23 @@
     width: 200px;
     border: 12px double black;
     border-radius: 40px 0px 40px 0px;
-    background-color: azure;
+    
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    background-image: url('https://images.pond5.com/dollar-sign-american-money-cash-footage-125158480_iconl.jpeg');
+    background-image: url('https://images.pexels.com/photos/3483098/pexels-photo-3483098.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
     background-size: cover;
-    text-shadow: 2px 2px 4px white;
+    
     -webkit-box-shadow: 20px 26px 15px 7px #000000; 
     box-shadow: 20px 26px 15px 7px #000000;
+    color: #000000;
+
+text-shadow: 2px 2px 0 #bcbcbc, 4px 4px 0 whitesmoke;
 }
 
 .perDiemCard > h2 {
     font-size: 40px;
 }
+

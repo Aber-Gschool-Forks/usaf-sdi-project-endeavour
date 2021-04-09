@@ -5,6 +5,7 @@ import formatPhoneNumber from "../FormatPhoneNumber";
 
 export default function BreweryCard() {
   const { currentBrew } = useContext(BreweryContext);
+  const google = <img src='https://mustlovetraveling.com/wp-content/uploads/2018/11/google-maps.png'/>
   var brewName, brewCity, brewState, brewPostal, brewCityStateZip, brewStreet, brewType, brewPhone, brewLat, brewLong, brewUrl;
   if( currentBrew ){
     brewName = currentBrew.name;
@@ -29,7 +30,7 @@ export default function BreweryCard() {
         <a href={brewUrl} className ='brewery-card-url'>{brewUrl}</a>
         <div className ='brewery-card-phone'>{formatPhoneNumber(brewPhone)}</div>
         <div className ='brewery-card-type'>{brewType}</div>
-        <a className="googleLink" href={`https://www.google.com/maps/search/?api=1&query=${brewLat},${brewLong}+beer+${brewCity}+${brewState}&zoom=13`} target="_blank">Open in Google Maps</a>
+        <a className="googleLink" href={`https://www.google.com/maps/search/?api=1&query=${brewLat},${brewLong}+beer+${brewCity}+${brewState}&zoom=13`} target="_blank">{google}</a>
       </div>
     </div>
   );
