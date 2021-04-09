@@ -1,5 +1,5 @@
 import "../styles/BreweryCard.css";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { BreweryContext } from "../Context";
 import formatPhoneNumber from "../FormatPhoneNumber";
 
@@ -8,17 +8,17 @@ export default function BreweryCard() {
   const google = <img src='https://mustlovetraveling.com/wp-content/uploads/2018/11/google-maps.png'/>
   var brewName, brewCity, brewState, brewPostal, brewCityStateZip, brewStreet, brewType, brewPhone, brewLat, brewLong, brewUrl;
   if( currentBrew ){
-    brewName = currentBrew.name;
-    brewCity = currentBrew.city;
-    brewState = currentBrew.State;
-    brewPostal = currentBrew.postal_code;
+    brewName = currentBrew.name||'N/A';
+    brewCity = currentBrew.city||'N/A';
+    brewState = currentBrew.state||'N/A';
+    brewPostal = currentBrew.postal_code||'N/A';
+    brewStreet = currentBrew.street||'N/A';
+    brewType = currentBrew.brewery_type||'N/A';
+    brewPhone = currentBrew.phone||'N/A';
+    brewLat = currentBrew.latitude||'N/A';
+    brewLong = currentBrew.longitude||'N/A';
+    brewUrl = currentBrew.website_url||'N/A';
     brewCityStateZip = brewCity + ', ' + brewState + " " + brewPostal;
-    brewStreet = currentBrew.street;
-    brewType = currentBrew.brewery_type;
-    brewPhone = currentBrew.phone;
-    brewLat = currentBrew.latitude;
-    brewLong = currentBrew.longitude;
-    brewUrl = currentBrew.website_url;
   }
 
   return (

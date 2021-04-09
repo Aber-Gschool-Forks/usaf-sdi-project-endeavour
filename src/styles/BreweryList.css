@@ -2,9 +2,9 @@
     height: 550px;
     width: 400px;
     overflow: scroll;
+    overflow-x: hidden;
     border: 2px solid black;
     border-radius: 5px;
-    background-color: saddlebrown;
     padding: 5px;
     display: flex;
     flex-direction: column;

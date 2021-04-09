@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Link, Route, Switch } from "react-router-dom";
+import React from "react";
+import {  Route, Switch } from "react-router-dom";
 import SearchForm from "./SearchPage";
 import BreweryPage from "./BreweryPage";
 import About from "./About";
@@ -12,8 +12,9 @@ function App() {
     <div className='app'>
       <Header />
     <Switch>
-      <Route path="/brewery-results/:name" component={BreweryPage} />
-      <Route path="/brewery-results/" component={BreweryPage} />
+      <Route path="/brewery-results/:cityfield/:statefield/:statecode/:zipcode">
+        <BreweryPage/>
+      </Route>
       <Route path="/about" component={About} />
       <Route path="/" component={SearchForm} />
     </Switch>
